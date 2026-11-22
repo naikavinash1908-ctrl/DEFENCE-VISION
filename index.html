@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101719">
+  <meta name="description" content="A public-source research workspace for understanding defence technology capabilities, dependencies and improvement pathways.">
+  <title>DEFENCE TECH-INSIGHT | Research Workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#home" data-page="home" aria-label="Defence Tech-Insight home">
+        <span class="brand-mark"><span></span><span></span><span></span></span>
+        <span class="brand-name">DEFENCE<br><b>TECH-INSIGHT</b></span>
+      </a>
+      <div class="workspace-label">RESEARCH WORKSPACE</div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-link active" data-page="home"><span class="nav-icon">⌂</span>Home dashboard</button>
+        <button class="nav-link" data-page="profile"><span class="nav-icon">◈</span>India technology profile</button>
+        <button class="nav-link" data-page="comparison"><span class="nav-icon">⇄</span>International comparison</button>
+        <button class="nav-link" data-page="gaps"><span class="nav-icon">⊙</span>Technology gap analysis</button>
+        <button class="nav-link" data-page="dependencies"><span class="nav-icon">⛓</span>Foreign dependencies</button>
+        <button class="nav-link" data-page="planner"><span class="nav-icon">✳</span>AI improvement planner <span class="nav-new">BETA</span></button>
+        <button class="nav-link" data-page="research"><span class="nav-icon">⌕</span>Research explorer</button>
+        <button class="nav-link" data-page="progress"><span class="nav-icon">↗</span>Progress monitoring</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="nav-link" data-page="methodology"><span class="nav-icon">ⓘ</span>Sources &amp; methodology</button>
+        <div class="sidebar-note"><span class="status-dot"></span><span>Open-source research<br><b>Unclassified · Public domain</b></span></div>
+        <div class="sidebar-version">RESEARCH PREVIEW <span>v0.1</span></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Toggle navigation">☰</button>
+        <div class="breadcrumb"><span>Workspace</span><span class="crumb-slash">/</span><b id="pageCrumb">Home dashboard</b></div>
+        <div class="topbar-right">
+          <span class="source-status"><span class="status-dot"></span>PUBLIC SOURCES ONLY</span>
+          <button class="icon-button" data-page="methodology" aria-label="About this project">?</button>
+          <div class="avatar" aria-label="Research workspace">R</div>
+        </div>
+      </header>
+
+      <div class="notice-bar"><span class="notice-icon">i</span><span><b>Research preview:</b> Sector ratings and comparison visuals on this demo are illustrative—not official assessments. See <button class="text-button" data-page="methodology">methodology &amp; sources</button>.</span><button class="notice-close" aria-label="Dismiss notice">×</button></div>
+
+      <section class="page active" id="page-home" data-title="Home dashboard">
+        <div class="page-heading">
+          <div><div class="eyebrow"><span class="eyebrow-line"></span>STRATEGIC TECHNOLOGY MONITOR</div><h1>India defence technology<br><span>landscape</span></h1><p class="page-intro">A public-source view of capabilities, research priorities and pathways to strengthen indigenous innovation.</p></div>
+          <div class="heading-meta"><span class="live-pill"><i></i> RESEARCH PREVIEW</span><span class="updated-label">DEMO DATASET · 2025</span></div>
+        </div>
+
+        <div class="stat-grid">
+          <article class="stat-card"><div class="stat-label">SECTORS TRACKED <span class="stat-symbol">◈</span></div><div class="stat-value">08</div><div class="stat-foot"><span class="muted">Across strategic technology areas</span></div></article>
+          <article class="stat-card"><div class="stat-label">COMPARATOR COUNTRIES <span class="stat-symbol">◎</span></div><div class="stat-value">08</div><div class="stat-foot"><span class="muted">Selected for research context</span></div></article>
+          <article class="stat-card"><div class="stat-label">RESEARCH THEMES <span class="stat-symbol">⌕</span></div><div class="stat-value">24</div><div class="stat-foot"><span class="muted">Sample themes for exploration</span></div></article>
+          <article class="stat-card accent-card"><div class="stat-label">ASSESSMENT BASIS <span class="stat-symbol">✓</span></div><div class="stat-value text-value">Public<br>evidence</div><div class="stat-foot"><span class="accent-text">No classified or operational data</span></div></article>
+        </div>
+
+        <div class="content-grid dashboard-grid">
+          <article class="panel chart-panel">
+            <div class="panel-heading"><div><div class="eyebrow small">CAPABILITY LANDSCAPE</div><h2>Sector overview</h2></div><button class="select-control" id="chartMode" aria-label="Switch chart view">Capability view⌄</button></div>
+            <p class="panel-description">Illustrative maturity indicators for demonstrating the interface. Not verified country scores.</p>
+            <div class="chart-wrap"><canvas id="sectorChart" aria-label="Illustrative sector radar chart"></canvas></div>
+            <div class="chart-legend"><span><i class="legend-dot india"></i>India · illustrative</span><span><i class="legend-dot benchmark"></i>Selected benchmark · illustrative</span><span class="legend-note">Scale 0–5 · methodology</span></div>
+          </article>
+          <article class="panel priorities-panel">
+            <div class="panel-heading"><div><div class="eyebrow small">FOCUS AREAS</div><h2>Research priorities</h2></div><span class="panel-count">03</span></div>
+            <p class="panel-description">Example themes to guide public-source research—not findings of a verified gap.</p>
+            <div class="priority-list">
+              <button class="priority-item" data-sector="Semiconductors &amp; electronics"><span class="priority-rank">01</span><span><b>Semiconductors &amp; electronics</b><small>Explore advanced packaging, design and supply chain evidence</small></span><span class="priority-arrow">↗</span></button>
+              <button class="priority-item" data-sector="AI &amp; robotics"><span class="priority-rank">02</span><span><b>AI &amp; robotics</b><small>Map public research programmes and responsible adoption</small></span><span class="priority-arrow">↗</span></button>
+              <button class="priority-item" data-sector="Advanced materials"><span class="priority-rank">03</span><span><b>Advanced materials</b><small>Review research translation and manufacturing evidence</small></span><span class="priority-arrow">↗</span></button>
+            </div>
+            <button class="panel-link" data-page="gaps">Explore all sectors <span>→</span></button>
+          </article>
+        </div>
+
+        <div class="content-grid lower-grid">
+          <article class="panel comparison-panel">
+            <div class="panel-heading"><div><div class="eyebrow small">COMPARATIVE LENS</div><h2>Country comparison</h2></div><button class="panel-link inline-link" data-page="comparison">View dashboard →</button></div>
+            <div class="comparison-controls"><label>Sector<select id="comparisonSector" class="select-control"><option value="all">All sectors</option></select></label><label>Compare with<select id="comparisonCountry" class="select-control"><option>United States</option></select></label></div>
+            <div class="bar-chart-wrap"><canvas id="comparisonChart" aria-label="Illustrative country comparison bar chart"></canvas></div>
+            <div class="chart-footnote">All values are illustrative placeholders (0–5). No authoritative cross-country score is implied.</div>
+          </article>
+          <article class="panel updates-panel">
+            <div class="panel-heading"><div><div class="eyebrow small">RESEARCH WORKBENCH</div><h2>Explore the evidence</h2></div><span class="workbench-mark">⌕</span></div>
+            <p class="panel-description">Start with a sector, then review the public sources and dates behind each assessment.</p>
+            <div class="search-box"><span>⌕</span><input id="quickSearch" type="search" placeholder="Search sectors, themes, sources..." aria-label="Search research"><kbd>↵</kbd></div>
+            <div class="quick-tags"><button data-search="aerospace">Aerospace</button><button data-search="semiconductor">Semiconductors</button><button data-search="innovation">Innovation</button></div>
+            <div class="source-mini"><span class="source-mini-icon">↗</span><span><b>Start with primary sources</b><small>Government reports · research papers · audit publications</small></span></div>
+          </article>
+        </div>
+        <footer class="page-footer"><span>DEFENCE TECH-INSIGHT <i>·</i> An independent research prototype</span><span>Not an official government or armed forces platform</span></footer>
+      </section>
+
+      <section class="page" id="page-profile" data-title="India technology profile">
+        <div class="page-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span>COUNTRY PROFILE</div><h1>India technology<br><span>profile</span></h1><p class="page-intro">A structured template for reviewing publicly documented research, industrial capacity and programme evidence.</p></div><span class="live-pill">PUBLIC SOURCES ONLY</span></div>
+        <div class="profile-banner"><div class="profile-emblem">IN</div><div><div class="eyebrow small">COUNTRY PROFILE · INDIA</div><h2>Evidence before assessment</h2><p>This prototype does not assert a verified national capability rating. Use the sector cards to identify evidence that still needs to be collected and reviewed.</p></div><button class="button-primary" data-page="methodology">Review methodology <span>→</span></button></div>
+        <div class="sector-grid" id="profileSectors"></div>
+      </section>
+
+      <section class="page" id="page-comparison" data-title="International comparison">
+        <div class="page-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span>COMPARATIVE ANALYSIS</div><h1>International<br><span>comparison</span></h1><p class="page-intro">Compare research indicators using transparent, like-for-like evidence—not implied rankings.</p></div><span class="live-pill">ILLUSTRATIVE DEMO</span></div>
+        <div class="panel filter-panel"><div class="filter-field"><label for="fullSectorFilter">Technology sector</label><select class="select-control" id="fullSectorFilter"></select></div><div class="filter-field"><label for="fullCountryFilter">Comparator country</label><select class="select-control" id="fullCountryFilter"></select></div><span class="filter-hint">Scores are placeholders to demonstrate interaction.</span></div>
+        <div class="content-grid comparison-page-grid"><article class="panel chart-panel"><div class="panel-heading"><div><div class="eyebrow small">SELECTED SECTOR</div><h2 id="comparisonTitle">Sector indicator comparison</h2></div></div><div class="chart-wrap wide-chart"><canvas id="fullComparisonChart" aria-label="Illustrative comparison chart"></canvas></div></article><article class="panel"><div class="eyebrow small">COUNTRIES IN SCOPE</div><h2>Comparator set</h2><p class="panel-description">Countries are selectable for research context. Inclusion does not imply a single shared benchmark.</p><div class="country-chips" id="countryChips"></div><div class="callout-note"><b>Comparability matters</b><p>Document source date, scope, definitions and uncertainty before drawing comparisons across countries.</p></div></article></div>
+      </section>
+
+      <section class="page" id="page-gaps" data-title="Technology gap analysis">
+        <div class="page-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span>CAPABILITY REVIEW</div><h1>Technology gap<br><span>analysis</span></h1><p class="page-intro">Review what is known, what remains uncertain and what evidence would support an assessment.</p></div><span class="live-pill">EVIDENCE-LED</span></div>
+        <div class="panel filter-panel"><div class="filter-field"><label for="gapFilter">Filter by sector</label><select class="select-control" id="gapFilter"></select></div><div class="filter-field"><label for="evidenceFilter">Evidence status</label><select class="select-control" id="evidenceFilter"><option value="all">All evidence states</option><option value="illustrative">Illustrative only</option><option value="needs-evidence">Evidence needed</option></select></div><span class="filter-hint">No public data is treated as proof of absence.</span></div>
+        <div class="gap-table panel"><div class="table-header"><span>TECHNOLOGY SECTOR</span><span>ASSESSMENT STATUS</span><span>EVIDENCE TO REVIEW</span><span></span></div><div id="gapRows"></div></div>
+        <div class="callout-note wide-note"><b>How to read this page</b><p>A gap can only be assessed after defining a capability, a comparable benchmark, relevant evidence and its date. This demo leaves country ratings unverified by design.</p></div>
+      </section>
+
+      <section class="page" id="page-dependencies" data-title="Foreign dependency analysis">
+        <div class="page-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span>SUPPLY-CHAIN RESILIENCE</div><h1>Foreign dependency<br><span>analysis</span></h1><p class="page-intro">Map documented import exposure and supply-chain concentration using traceable public records.</p></div><span class="live-pill">NO UNSOURCED CLAIMS</span></div>
+        <div class="dependency-summary"><div class="panel dependency-intro"><div class="eyebrow small">PUBLIC EVIDENCE TEMPLATE</div><h2>Build the dependency picture</h2><p>Dependency is component- and programme-specific. This prototype does not label a sector as dependent without a cited, dated source.</p><button class="button-primary" data-page="research">Open research explorer <span>→</span></button></div><div class="panel dependency-stat"><div class="stat-label">DOCUMENTED ITEMS</div><div class="stat-value">—</div><div class="stat-foot"><span class="muted">No verified records loaded</span></div></div><div class="panel dependency-stat"><div class="stat-label">SOURCE COVERAGE</div><div class="stat-value">0<span class="unit">%</span></div><div class="stat-foot"><span class="muted">Demo data not yet populated</span></div></div></div>
+        <div class="panel dependency-table"><div class="panel-heading"><div><div class="eyebrow small">DEPENDENCY REGISTER</div><h2>Evidence collection fields</h2></div><span class="panel-count">TEMPLATE</span></div><div class="table-header dependency-head"><span>COMPONENT / INPUT</span><span>SECTOR</span><span>PUBLIC SOURCE</span><span>STATUS</span></div><div class="empty-state"><div class="empty-icon">⌕</div><b>No verified dependency records yet</b><span>Add only documented, attributable information with a publication date.</span></div></div>
+      </section>
+
+      <section class="page" id="page-planner" data-title="AI improvement planner">
+        <div class="page-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span>RECOMMENDATION WORKSPACE</div><h1>AI improvement<br><span>planner</span></h1><p class="page-intro">Generate a structured, human-reviewable roadmap from a sector and identified research question.</p></div><span class="live-pill beta-pill">✳ ASSISTED · PREVIEW</span></div>
+        <div class="planner-layout"><article class="panel planner-form"><div class="eyebrow small">DEFINE YOUR RESEARCH QUESTION</div><h2>Build an improvement roadmap</h2><p class="panel-description">This frontend demo creates a general example roadmap. It is not an AI model and its suggestions are not evidence-backed findings.</p>
+          <label for="plannerSector">Technology sector</label><select class="select-control" id="plannerSector"></select>
+          <label for="plannerChallenge">Research challenge or question</label><textarea id="plannerChallenge" rows="4" placeholder="e.g. What public evidence describes research-to-manufacturing pathways in this sector?"></textarea>
+          <label for="plannerHorizon">Planning horizon</label><select class="select-control" id="plannerHorizon"><option value="all">Short, medium and long term</option><option value="short">Short term (0–2 years)</option><option value="medium">Medium term (2–5 years)</option><option value="long">Long term (5+ years)</option></select>
+          <button id="generateRoadmap" class="button-primary full-button"><span class="sparkle">✳</span> Generate example roadmap <span>→</span></button>
+          <div class="privacy-note"><span>ⓘ</span> No data is sent anywhere. AI integration is not configured in this frontend preview.</div>
+        </article><article class="panel roadmap-panel"><div class="roadmap-top"><div><div class="eyebrow small">ROADMAP OUTPUT</div><h2 id="roadmapTitle">Your roadmap will appear here</h2></div><span class="confidence-label">HUMAN REVIEW REQUIRED</span></div><div id="roadmapOutput" class="roadmap-placeholder"><span class="placeholder-icon">✳</span><b>Start with a research question</b><p>Select a sector and generate an example improvement framework. Each action includes suggested contributors, timing and indicators.</p></div><div class="roadmap-disclaimer">Illustrative planning framework only · Confirm recommendations against cited, current public evidence before use.</div></article></div>
+      </section>
+
+      <section class="page" id="page-research" data-title="Research explorer">
+        <div class="page-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span>PUBLICATION DISCOVERY</div><h1>Research &amp; innovation<br><span>explorer</span></h1><p class="page-intro">Search the sample source directory and organize research leads by sector.</p></div><span class="live-pill">CURATED STARTING POINTS</span></div>
+        <div class="panel research-search"><span>⌕</span><input id="researchSearch" type="search" placeholder="Search source names, themes or sectors..." aria-label="Search sources"><select class="select-control" id="researchSectorFilter"><option value="all">All sectors</option></select><span id="resultCount" class="result-count"></span></div>
+        <div class="source-grid" id="sourceGrid"></div>
+        <div class="callout-note wide-note"><b>Source-directory note</b><p>The links below are institutional entry points, not citations for specific capability claims. Verify the publication, date and relevant passage before using it as evidence.</p></div>
+      </section>
+
+      <section class="page" id="page-progress" data-title="Progress monitoring">
+        <div class="page-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span>MEASUREMENT FRAMEWORK</div><h1>Progress<br><span>monitoring</span></h1><p class="page-intro">Define measurable indicators before tracking change; avoid treating funding or activity as a direct proxy for capability.</p></div><span class="live-pill">FRAMEWORK PREVIEW</span></div>
+        <div class="panel progress-intro"><div class="progress-icon">↗</div><div><div class="eyebrow small">INDICATOR DESIGN</div><h2>From research activity to verified outcomes</h2><p>Indicators below are examples for planning. No live progress values are currently connected.</p></div></div>
+        <div class="progress-grid" id="progressGrid"></div>
+      </section>
+
+      <section class="page" id="page-methodology" data-title="Sources & methodology">
+        <div class="page-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span>TRANSPARENCY &amp; TRUST</div><h1>Sources &amp;<br><span>methodology</span></h1><p class="page-intro">Understand what this preview can—and cannot—claim.</p></div><span class="live-pill">READ BEFORE INTERPRETING</span></div>
+        <div class="methodology-grid"><article class="panel methodology-main"><div class="eyebrow small">ASSESSMENT STANDARD</div><h2>Evidence first. Estimates labeled.</h2><p>DEFENCE TECH-INSIGHT is an independent research prototype. It is not affiliated with or endorsed by any government, armed forces or defence organization.</p><div class="method-step"><span>01</span><div><b>Define the capability</b><p>Use a specific, observable capability rather than a broad sector label.</p></div></div><div class="method-step"><span>02</span><div><b>Collect attributable evidence</b><p>Prefer primary government, audit, parliamentary, academic and patent sources. Record source title, publication date, scope and URL.</p></div></div><div class="method-step"><span>03</span><div><b>Make like-for-like comparisons</b><p>Document definitions, time period and uncertainty. Different public disclosure levels do not establish a capability gap.</p></div></div><div class="method-step"><span>04</span><div><b>Separate facts from interpretation</b><p>Label verified facts, analytical judgments, estimates and illustrative examples distinctly. Do not invent statistics.</p></div></div></article><article class="panel"><div class="eyebrow small">DEMO DATA NOTICE</div><h2>What the scores mean</h2><div class="demo-score"><div class="demo-score-icon">!</div><div><b>Illustrative interface values</b><p>Every numeric capability score and chart in this frontend is sample data to demonstrate the dashboard. It does not represent a verified assessment of India or any comparator country.</p></div></div><div class="confidence-row"><span class="confidence-dot low"></span><span><b>Confidence: not assessed</b><small>No evidence corpus or scoring model is connected.</small></span></div><div class="eyebrow small source-head">SOURCE DIRECTORY</div><div id="methodSources" class="method-sources"></div></article></div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
